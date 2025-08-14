@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdant Roots - Fresh Food Grown on Your Rooftop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/2249962/pexels-photo-2249962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+        }
+        .feature-card:hover, .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #22C55E; /* green-500 */
+            transition: width 0.3s;
+        }
+        .nav-link:hover {
+            color: #16A34A; /* green-600 */
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* Styles for scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .plan-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-600 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.59a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                Verdant Roots
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#how-it-works" class="text-gray-600 nav-link">How It Works</a>
+                <a href="#pricing" class="text-gray-600 nav-link">Our Models</a>
+                <a href="#gallery" class="text-gray-600 nav-link">Gallery</a>
+                <a href="#contact" class="bg-green-500 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-green-600 transition duration-300">Get a Free Quote</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#how-it-works" class="block py-2 text-gray-600">How It Works</a>
+            <a href="#pricing" class="block py-2 text-gray-600">Our Models</a>
+            <a href="#gallery" class="block py-2 text-gray-600">Gallery</a>
+            <a href="#contact" class="block mt-2 bg-green-500 text-white font-medium py-2 px-4 rounded-lg text-center hover:bg-green-600 transition duration-300">Get a Free Quote</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative hero-section pt-20 pb-24 md:pt-32 md:pb-36">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                    Enjoy Fresh, Home-Grown Food. Right From Your Rooftop.
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-green-100 max-w-3xl mx-auto">
+                    We turn your unused roof space into a beautiful, productive garden. Eat healthier and save money on groceries. No green thumb required.
+                </p>
+                <div class="mt-10 flex justify-center items-center gap-4">
+                    <a href="#pricing" class="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-green-600 transition-transform transform hover:scale-105 duration-300">See Our Models</a>
+                    <a href="#how-it-works" class="bg-white text-green-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-transform transform hover:scale-105 duration-300 border border-transparent">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get Started in 3 Simple Steps</h2>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We handle everything from start to finish.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+                    <!-- Step 1 -->
+                    <div class="scroll-animate">
+                        <div class="bg-green-500 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto text-3xl font-bold mb-4">1</div>
+                        <h3 class="text-xl font-semibold mb-2">Free Consultation</h3>
+                        <p class="text-gray-600">Contact us for a free quote. Our team will assess your space and discuss the best options with you.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="scroll-animate" style="transition-delay: 0.1s;">
+                        <div class="bg-green-500 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto text-3xl font-bold mb-4">2</div>
+                        <h3 class="text-xl font-semibold mb-2">We Install Everything</h3>
+                        <p class="text-gray-600">Our experts set up your smart farm with automated watering and everything you need to grow.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="scroll-animate" style="transition-delay: 0.2s;">
+                        <div class="bg-green-500 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto text-3xl font-bold mb-4">3</div>
+                        <h3 class="text-xl font-semibold mb-2">Enjoy Your Harvest</h3>
+                        <p class="text-gray-600">Pick fresh, organic vegetables and herbs right from your roof. It's that easy!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Find Your Perfect Rooftop Farm</h2>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We offer tailored solutions for every space and need.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <!-- Plan 1: Starter Kit -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg plan-card scroll-animate">
+                        <h3 class="text-2xl font-bold text-center">The Balcony</h3>
+                        <p class="text-center text-gray-500 mt-2">Perfect for balconies & small spaces</p>
+                        <div class="text-center my-6 py-4 border-y-2 border-dashed">
+                            <p class="text-lg font-semibold text-green-600">Consult for Details</p>
+                        </div>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Compact Smart Garden</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Automated Watering</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Starter Seed Kit</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> App for tips & tricks</li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center bg-green-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 hover:bg-green-600">Request a Quote</a>
+                    </div>
+                    <!-- Plan 2: Family Farm -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg plan-card scroll-animate">
+                        <h3 class="text-2xl font-bold text-center">The Terrace</h3>
+                        <p class="text-center text-gray-500 mt-2">Feed your family with fresh produce</p>
+                        <div class="text-center my-6 py-4 border-y-2 border-dashed">
+                            <p class="text-lg font-semibold text-green-600">Consult for Details</p>
+                        </div>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Multi-Pot Smart Farm</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Automated Watering & Nutrients</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Premium Seed Selection</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Smart App with Growth Plans</li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center bg-green-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 hover:bg-green-600">Request a Quote</a>
+                    </div>
+                    <!-- Plan 3: Commercial Hub -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg plan-card scroll-animate">
+                        <h3 class="text-2xl font-bold text-center">The Hub</h3>
+                        <p class="text-center text-gray-500 mt-2">For offices, restaurants & communities</p>
+                        <div class="text-center my-6 py-4 border-y-2 border-dashed">
+                             <p class="text-lg font-semibold text-green-600">Consult for Details</p>
+                        </div>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Fully Scalable Systems</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Solar Power Integration</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Advanced AI Analytics</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="text-green-500 mr-2"></i> Full Maintenance Support</li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center bg-green-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 hover:bg-green-600">Request a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Rooftop Transformations</h2>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">From concrete jungles to green sanctuaries.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div class="h-80"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Lush rooftop garden with a city view"></div>
+                        <div class="h-64"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/4750273/pexels-photo-4750273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Close-up of vibrant, fresh lettuce growing"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="h-64"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Woman harvesting fresh vegetables from a rooftop garden"></div>
+                        <div class="h-80"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/6591157/pexels-photo-6591157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Modern rooftop terrace with comfortable seating and planters"></div>
+                    </div>
+                    <div class="grid gap-4">
+                         <div class="h-80"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/6153634/pexels-photo-6153634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hands holding a basket of freshly picked vegetables"></div>
+                        <div class="h-64"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/5669524/pexels-photo-5669524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Community garden event on a sunny rooftop"></div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div class="h-64"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Aromatic herbs growing in modern planters"></div>
+                        <div class="h-80"><img class="gallery-img rounded-lg" src="https://images.pexels.com/photos/1029615/pexels-photo-1029615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rooftop farm with a stunning sunset view over the city"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Loved by Homes and Businesses</h2>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-xl shadow-md scroll-animate">
+                        <img src="https://placehold.co/100x100/E0E0E0/757575?text=A" class="w-20 h-20 mx-auto rounded-full -mt-16 border-4 border-white" alt="Avatar">
+                        <p class="mt-4 text-gray-600">"Our office rooftop is now a green oasis. The employees love getting fresh salads for lunch, and it's a great team-building activity!"</p>
+                        <div class="mt-4 font-semibold text-gray-800">- Priya S., HR Manager</div>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-md scroll-animate" style="transition-delay: 0.1s;">
+                        <img src="https://placehold.co/100x100/E0E0E0/757575?text=B" class="w-20 h-20 mx-auto rounded-full -mt-16 border-4 border-white" alt="Avatar">
+                        <p class="mt-4 text-gray-600">"I never thought I could grow my own food in the city. The app tells me exactly when to harvest. It's the future!"</p>
+                        <div class="mt-4 font-semibold text-gray-800">- Rohan M., Apartment Resident</div>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-md scroll-animate" style="transition-delay: 0.2s;">
+                        <img src="https://placehold.co/100x100/E0E0E0/757575?text=C" class="w-20 h-20 mx-auto rounded-full -mt-16 border-4 border-white" alt="Avatar">
+                        <p class="mt-4 text-gray-600">"As a chef, getting hyper-local, organic produce is a dream. The quality is amazing and my customers can taste the difference."</p>
+                        <div class="mt-4 font-semibold text-gray-800">- Chef Vikram, 'The Urban Table'</div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="py-20 bg-green-600 text-white">
+            <div class="container mx-auto px-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 lg:p-16 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold">Ready to Start Growing?</h2>
+                    <p class="mt-4 max-w-2xl mx-auto">Get a free, no-obligation quote and find out how easy it is to have a farm on your rooftop.</p>
+                    <form id="contact-form" class="mt-8 max-w-xl mx-auto">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-300" required>
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-300" required>
+                        </div>
+                        <textarea placeholder="Tell us about your space (e.g., rooftop, balcony)..." rows="4" class="w-full mt-4 px-4 py-3 rounded-lg bg-white/90 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-300" required></textarea>
+                        <button type="submit" class="mt-6 w-full md:w-auto bg-white text-green-600 font-bold py-3 px-12 rounded-lg shadow-lg hover:bg-green-50 transition-transform transform hover:scale-105 duration-300">
+                            Get My Free Quote
+                        </button>
+                    </form>
+                    <div id="form-message" class="mt-4 text-lg"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-green-400">Verdant Roots</h3>
+                    <p class="mt-2 text-gray-400">Growing a greener tomorrow, one rooftop at a time.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Quick Links</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white">Our Models</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Connect</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Instagram</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Twitter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Contact</h4>
+                    <p class="mt-4 text-gray-400">info@verdantroots.com</p>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500">
+                <p>&copy; 2024 Verdant Roots. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // --- DOM Element Selection ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+
+        // --- Mobile Menu Toggle ---
+        // Toggles the visibility of the mobile navigation menu.
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Smooth Scrolling & Mobile Menu Closing ---
+        // Adds a click event to all navigation links for smooth scrolling.
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Find the target element to scroll to
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                // Scroll to the target element if it exists
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                // If the mobile menu is open, close it after clicking a link.
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // --- Contact Form Submission ---
+        // Handles the contact form submission without reloading the page.
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevents the default form submission
+                formMessage.textContent = 'Thank you! We\'ve received your request and will get back to you shortly.';
+                formMessage.classList.add('text-green-200');
+                contactForm.reset(); // Clears the form fields
+
+                // Hide the message after 5 seconds
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                    formMessage.classList.remove('text-green-200');
+                }, 5000);
+            });
+        }
+
+        // --- Scroll Animation Logic ---
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('is-visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // Trigger animation for elements already in view on page load
+        handleScrollAnimation();
+
+    </script>
+</body>
+</html>
